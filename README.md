@@ -1,7 +1,7 @@
 # Linux-Server
 
 ## About
-- The server can be accessed at http://http://52.200.69.204//
+- The server can be accessed at http://52.200.69.204/
 
 - Accessible SSH port 2200
 
