@@ -103,7 +103,7 @@ Allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 12
 5. Create a new database named catalog  and create a new user named catalog in postgreSQL shell
     ```
     CREATE DATABASE catalog;
-    CREATE USER catalog WITH PASSWORD password;
+    CREATE USER catalog WITH PASSWORD 'password';
     ```
 6. Give user "catalog" permission to "catalog" application database
     ```
@@ -163,7 +163,7 @@ Allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 12
     cd /var/www/FlaskApp
     sudo nano flaskapp.wsgi
     ```
-    - Add the following lines of code to the flaskapp.wsgi file:
+- Add the following lines of code to the flaskapp.wsgi file:
 
     ```
     #!/usr/bin/python
