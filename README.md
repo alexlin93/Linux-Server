@@ -1,7 +1,7 @@
 # Linux-Server
 
 ## About
-- The server can be accessed at http://http://52.200.69.204//
+- The server can be accessed at http://34.201.56.65/
 
 - Accessible SSH port 2200
 
@@ -48,8 +48,8 @@ Allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 12
 
 ### Create the user grader and give it sudo permissions
 1. `sudo adduser grader`
-2. `touch /etc/sudoers.d/grader`
-3. `vim /etc/sudoers.d/grader`
+2. `sudo touch /etc/sudoers.d/grader`
+3. `sudo vim /etc/sudoers.d/grader`
 4. insert this line `grader ALL=(ALL:ALL) ALL`, save, and quit
 
 ### Create an ssh key pair using ssh-keygen
@@ -95,7 +95,7 @@ Allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 12
     `sudo apt-get install libpq-dev python-dev`
     `sudo apt-get install postgresql postgresql-contrib`
 
-2. Check if no remote connections are allowed `sudo vim /etc/postgresql/9.3/main/pg_hba.conf`
+2. Check if no remote connections are allowed `sudo vim /etc/postgresql/9.5/main/pg_hba.conf`
 3. Login as postgres
     `sudo su - postgres`
 4. Get into postgreSQL shell
@@ -117,7 +117,7 @@ Allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 12
 2. `cd /var/www`
 3. `sudo mkdir FlaskApp`
 4. `cd FlaskApp`
-5. Clone the Catalog App `git clone [your repo]`
+5. Clone the Catalog App `sudo git clone [your repo]`
 6. Rename the project `sudo mv ./Item-Catalog ./FlaskApp`
 7. `cd FlaskApp`
 8. Rename project file to `__init__.py`
@@ -126,12 +126,12 @@ Allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 12
 
 ### Install dependencies
 1. Install pip `sudo apt-get install python-pip`
-2. Install Flask `pip install Flask`
+2. Install Flask `sudo pip install Flask`
 3. Install other project dependencies `sudo pip install httplib2 oauth2client sqlalchemy psycopg2 sqlalchemy_utils`
 
 ### Update the path of client_secrets.json
   - `sudo nano __init__.py`
-  - Change client_secrets.json to `/var/www/catalog/catalog/client_secrets.json`
+  - Change client_secrets.json to `/var/www/FlaskApp/FlaskApp/client_secrets.json`
 
 ## Configure and Enable a New Virtual Host
 1. `sudo nano /etc/apache2/sites-available/FlaskApp.conf`
@@ -139,8 +139,8 @@ Allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 12
 
     ```
     <VirtualHost *:80>
-        ServerName http://52.200.69.204/
-        ServerAdmin admin@http://52.200.69.204/
+        ServerName http://34.201.56.65/
+        ServerAdmin admin@http://34.201.56.65/
         WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi
         <Directory /var/www/FlaskApp/FlaskApp/>
             Order allow,deny
